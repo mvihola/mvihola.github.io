@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Further examples · AdaptiveMCMC.jl Documentation</title><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">AdaptiveMCMC.jl Documentation</a></span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../rwm/">Random walk sampler state</a></li><li><a class="tocitem" href="../adapt/">Adaptation state</a></li><li><a class="tocitem" href="../step/">Step sizes</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Further examples</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Further examples</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/mvihola/AdaptiveMCMC.jl/blob/master/docs/src/examples.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Further-examples"><a class="docs-heading-anchor" href="#Further-examples">Further examples</a><a id="Further-examples-1"></a><a class="docs-heading-anchor-permalink" href="#Further-examples" title="Permalink"></a></h1><p>Here are some further examples how the package can be used.</p><h2 id="Custom-sampler"><a class="docs-heading-anchor" href="#Custom-sampler">Custom sampler</a><a id="Custom-sampler-1"></a><a class="docs-heading-anchor-permalink" href="#Custom-sampler" title="Permalink"></a></h2><p>The package provides simple building blocks which you can use within a &#39;custom&#39; MCMC sampler. Here is an example:</p><pre><code class="language-julia hljs">using AdaptiveMCMC
+
+# Sampler in R^d
+function mySampler(log_p, n, x0)
+
+    # Initialise random walk sampler state: r.x current state, r.y proposal
+    r = RWMState(x0)
+
+    # Initialise Adaptive Metropolis state (with default parameters)
+    s = AdaptiveMetropolis(x0)
+    # Other adaptations are: AdaptiveScalingMetropolis,
+    # AdaptiveScalingWithinAdaptiveMetropolis, and RobustAdaptiveMetropolis
+
+    X = zeros(eltype(x0), length(x0), n) # Allocate output storage
+    p_x = log_p(r.x)                     # = log_p(x0); the initial log target
+    for k = 1:n
+
+        # Draw new proposal r.x -&gt; r.y:
+        draw!(r, s)
+
+        p_y = log_p(r.y)                      # Calculate log target at proposal
+        alpha = min(one(p_x), exp(p_y - p_x)) # The Metropolis acceptance probability
+
+        if rand() &lt;= alpha
+            p_x = p_y
+
+            # This &#39;accepts&#39;, or interchanges r.x &lt;-&gt; r.y:
+            # (NB: do not do r.x = r.y; these are (pointers to) vectors!)
+            accept!(r)
+        end
+
+        # Do the adaptation update:
+        adapt!(s, r, alpha, k)
+
+        X[:,k] = r.x   # Save the current sample
+     end
+    X
+end
+
+# Standard normal target for testing
+normal_log_p(x) = -mapreduce(e-&gt;e*e, +, x)/2
+
+# Run 1M iterations of the sampler targetting 30d standard Normal:
+X = mySampler(normal_log_p, 1_000_000, zeros(30))</code></pre><h2 id="Using-custom-&#39;local-move&#39;-kernel-within-adaptive-parallel-tempering"><a class="docs-heading-anchor" href="#Using-custom-&#39;local-move&#39;-kernel-within-adaptive-parallel-tempering">Using custom &#39;local move&#39; kernel within adaptive parallel tempering</a><a id="Using-custom-&#39;local-move&#39;-kernel-within-adaptive-parallel-tempering-1"></a><a class="docs-heading-anchor-permalink" href="#Using-custom-&#39;local-move&#39;-kernel-within-adaptive-parallel-tempering" title="Permalink"></a></h2></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.23 on <span class="colophon-date" title="Thursday 29 December 2022 14:16">Thursday 29 December 2022</span>. Using Julia version 1.8.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
