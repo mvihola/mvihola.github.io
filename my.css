@@ -1,0 +1,11 @@
+div.preprint {
+  font-style: italic;
+  padding-left: 2ex;
+  padding-bottom: 0.5ex;
+}
+
+img.float {
+  float: right;
+  margin: 2em;
+  border: none;
+}
