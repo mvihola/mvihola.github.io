@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <link href="grapham.css" title="Default" rel="stylesheet" type="text/css">
+   <title>Grapham</title>
+</head>
+
+<body>
+
+<div class="content">
+
+<div class="head">
+<h1><span class="name">Grapham:</span> graphical models with adaptive random walk 
+Metropolis algorithms
+</div>
+
+<div class="main">
+
+<h1>Introduction</h1>
+
+<img class="float" src="samples.png" alt="Example">
+
+<p>
+Adaptive (non-Markovian) MCMC methods have gained increasing interest in the
+last few years. The first of the introduced methods, the &ldquo;Adaptive
+Metropolis&rdquo; was shown to provide valid simulation from the target
+distribution in the seminal paper by Haario, Saksman, and Tamminen 
+(<a href="http://projecteuclid.org/euclid.bj/1080222083">Bernoulli 7, 
+2001, no. 2</a>). Since then, many similar adaptive methods have
+been introduced, and their theoretical properties have been studied.
+</p>
+
+<p>
+<span class="name">Grapham</span> is a free
+(<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GPL</a>'d) 
+experimental tool for MCMC sampling in a
+hierarchical (or &ldquo;graphical&rdquo;) model, using adaptive
+random-walk-based MCMC methods, including</p>
+<ul>
+<li> covariance adaptation (<a
+href="http://dx.doi.org/10.2307/3318737">Haario, Saksman &amp; Tamminen,
+Bernoulli 7(2) 2001</a>),
+<li> variable blocking/Metropolis-within-Gibbs
+(e.g. <a href="http://dx.doi.org/10.1111/j.1467-9868.2004.02053.x">
+Haario, Laine, Lehtinen, Saksman &amp; Tamminen, J. R. Stat. Soc. Ser. B
+66(3), 2004</a>,
+<li> scale adaptation (e.g. <a href="http://dx.doi.org/10.3150/bj/1130077595">Atchadé &amp; Rosenthal, Bernoulli
+11(5), 2005</a>),
+<li> delayed rejection 
+(<a href="http://dx.doi.org/10.1007/s11222-006-9438-0">Haario, Laine, Mira
+&amp; Saksman, Statist. Comput. 16(4), 2006</a>), and
+<li> robust shape adaptation 
+(<a href="http://dx.doi.org/10.1007/s11222-011-9269-5">Vihola, Statist.
+Comput. 22(5), 2012</a>).
+</ul>
+<p>
+<span class="name">Grapham</span> is implemented in C
+and uses <a href="http://www.lua.org/">Lua</a> as a model specification
+(and scripting) language. There are also simple data import tools for <a
+href="http://www.r-project.org">R</a>
+and <a href="http://www.mathworks.com/products/matlab/">Matlab</a>/<a
+href="http://www.gnu.org/software/octave/">Octave</a>.
+</p>
+
+
+<h1>Download</h1>
+
+<p>
+The source distribution is recommended; the binaries may be outdated and
+may not work on all systems.
+The source has been compiled
+succesfully at least with GCC 4.1.2 and 4.0.3 in Linux, and 
+MinGW GCC 3.4.2 in Windows XP (with 
+<a href="http://code.google.com/p/dlfcn-win32/">dlfcn-win32</a>).
+<ul>
+<li>Source: <a href="grapham-20130524.tar.gz">grapham-20130524.tar.gz</a>. 
+You may also need:
+<ul>
+<li> <a href="http://www.lua.org/download.html">Lua</a> version &ge;5.1
+<li> <a
+href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/index.html">
+  dSFMT (Double precision SIMD-oriented fast Mersenne Twister)</a> 
+<li> <a href="http://numlua.luaforge.net/">Numeric Lua</a> 
+</ul>
+<span class="name">Grapham</span> was tested to compile with
+<a href="lua-5.1.4.tar.gz">lua-5.1.4.tar.gz</a>,
+<a href="dSFMT-src-2.1.tar.gz">dSFMT-src-2.1.tar.gz</a>, and
+<a href="numlua-0.2.1.tar.gz">numlua-0.2.1.tar.gz</a>.
+<li> Binaries:
+<ul>
+<li> Win32: 
+<a href="grapham-20101119-win32bin.zip">grapham-20101119-win32bin.zip</a>
+<li> Linux x86:
+<a
+href="grapham-20101119-linux32bin.tar.gz">grapham-20101119-linux32bin.tar.gz</a>
+<li> Linux x86_64: 
+<a
+href="grapham-20130524-linux64bin.tar.gz">grapham-20130524-linux64bin.tar.gz</a>
+</ul>
+</ul>
+</p>
+
+<h1>Documents</h1>
+
+<p>
+<ul>
+<li>Article: <a href="http://dx.doi.org/10.1016/j.csda.2009.09.001">Comput.
+Stat. Data An. 54(1), 2010</a> (preprint: <a
+href="../vihola_-_grapham.pdf">PDF</a>)
+<li>User guide: <a href="grapham-doc.pdf">PDF</a>
+</ul>
+</p>
+
+
+<h1>Links</h1>
+<ul>
+<li> <a href="http://www.lua.org/pil/">Programming in Lua (first edition)</a>
+<li> <a href="http://lua-users.org/wiki/LuaShortReference">Lua reference
+card</a>
+<li> <a href="http://www.probability.ca/amcmc/">Jeffrey Rosenthal's AMCMC
+package</a>
+<li> <a href="http://www.mrc-bsu.cam.ac.uk/bugs/">The BUGS Project</a>,
+<a href="http://www.mathstat.helsinki.fi/openbugs/">OpenBUGS</a>, and
+<a href="http://calvin.iarc.fr/~martyn/software/jags/">JAGS</a>
+</ul>
+
+<h1>Warning</h1>
+
+<p>
+Please notice that <span class="name">Grapham</span> is experimental code,
+written by the author primarily for personal use. The software
+may have undesirable restrictions or inconsistencies, even bugs, and the
+documentation may not be entirely detailed.
+</p>
+
+<h1>Contact</h1>
+
+<p>
+If you notice some bugs, or have some suggestions, 
+the author of <span class="name">Grapham</span>, <a
+href="http://iki.fi/mvihola/">Matti Vihola</a>, can be contacted by email
+<i>&lt;mvihola at iki dot fi&gt;</i>.
+</p>
+
+</div>
+
+<div class="bottom">
+<p class="linkas">
+The static address of this page is 
+<a href="http://iki.fi/mvihola/grapham/">http://iki.fi/mvihola/grapham/</a>
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
