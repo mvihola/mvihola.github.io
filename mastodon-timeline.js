@@ -163,7 +163,7 @@ MastodonApi.prototype.getToots = function () {
         if (mapi.LINK_SEE_MORE) {
           let linkSeeMorePath = "";
           if (this.TIMELINE_TYPE === "profile") {
-            linkSeeMorePath = mapi.PROFILE_NAME;
+            linkSeeMorePath = "@" + mapi.PROFILE_NAME;
           } else if (this.TIMELINE_TYPE === "hashtag") {
             linkSeeMorePath = "tags/" + this.HASHTAG_NAME;
           } else if (this.TIMELINE_TYPE === "local") {

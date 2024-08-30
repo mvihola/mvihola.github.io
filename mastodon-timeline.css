@@ -29,6 +29,9 @@ html[data-theme="dark"] {
 /* Main container */
 .mt-timeline {
   height: 100%;
+  max-width: 86ex;
+  margin-left: auto;
+  margin-right: auto;
   overflow-y: auto;
   position: relative;
   background: var(--bg-color);
