@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="mastodon-timeline.css" />
-    <script src="mastodon-timeline.js"></script>
+<!--    <link rel="stylesheet" href="mastodon-timeline.css" />
+    <script src="mastodon-timeline.js"></script> -->
 
     <title>Matti Vihola - News</title>
 </head>
@@ -28,18 +28,26 @@
         </nav>
         <h2>Recent things</h2>
 
-        From <a href="https://sigmoid.social/@MattiVihola">@MattiVihola@sigmoid.social</a>
+        From <a href="https://bsky.app/profile/mattivihola.bsky.social">mattivihola.bsky.social</a>
+        <!-- <a href="https://sigmoid.social/@MattiVihola">@MattiVihola@sigmoid.social</a> -->
         <!-- and Twitter <a href="https://twitter.com/MattiVihola">@MattiVihola</a> -->
 </header>
 <main>
 
-    <div class="mt-timeline">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+  <bsky-embed
+      username="mattivihola.bsky.social"
+      mode="dark"
+      limit="5"
+    >
+  </bsky-embed>
+
+  <hr> 
+<!--    <div class="mt-timeline">
         <div id="mt-body" class="mt-body" role="feed">
             <div class="loading-spinner"></div>
         </div>
-    </div>
-
-    <hr> 
+    </div> -->
 
 <!--    <a class="twitter-timeline" href="https://twitter.com/MattiVihola?ref_src=twsrc%5Etfw">Tweets by MattiVihola</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 </main>
