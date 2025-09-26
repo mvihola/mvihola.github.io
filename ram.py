@@ -1,4 +1,4 @@
-#Copyright (c) 2020 Matti Vihola
+#Copyright (c) 2020,2025 Matti Vihola
 #
 #Permission is hereby granted, free of charge, to any person obtaining a copy
 #of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,6 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-from math import sqrt, exp
 import numpy as np
 
 # This is a generic 'adaptive proposal', which is instantiated
@@ -77,7 +76,7 @@ class RobustAdaptiveMetropolis:
         dalpha = alpha - self.alpha_opt
 
         # Calculate normalised 'innovation', avoiding division by zero:
-        sz2 = sqrt(np.inner(self.z, self.z))
+        sz2 = np.sqrt(np.inner(self.z, self.z))
         normalised_z = self.chol @ (self.z/sz2 if sz2 > 0 else self.z)
 
         # Calculate new proposal covariance:
@@ -124,7 +123,7 @@ def ram_sampler(log_target, x0, n, blocks = None):
             # ... and calculate its log target value:
             p_y = log_target(y)
             # ... and Metropolis-Hastings acceptance rate:
-            acc_prob = min(1, exp(p_y - p_x))
+            acc_prob = min(1, np.exp(p_y - p_x))
             if np.random.rand() <= acc_prob:
                 # Accept:
                 x = y; p_x = p_y; accepted += 1
@@ -164,3 +163,6 @@ def ram_demo():
     print("Estimated covariance: "); print(np.cov(X_blk.transpose()))
     return {"X": X, "sampler": sampler, 
             "X_blk": X_blk, "samplers_blk": samplers_blk}
+
+if __name__ == "__main__":
+    ram_demo()
