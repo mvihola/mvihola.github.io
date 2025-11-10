@@ -36,101 +36,114 @@
 <h2>Julia</h2>
 <ul>
   <li>
-    <a href="https://github.com/mvihola/CBPFCouplingPaperCodes">CBPFCouplingPaperCodes</a>
-    <p>Implementation of coupled conditional backward sampling particle filter algorithms and experiments in <a href="https://arxiv.org/abs/2312.17572">arXiv:2312.17572</a></p>
+    <strong>CBPFCouplingPaperCodes</strong>: Implementation of coupled conditional backward sampling particle filter algorithms and experiments in <a href="https://arxiv.org/abs/2312.17572">arXiv:2312.17572</a>
+    <div class="preprint">
+    <a href="https://github.com/mvihola/CBPFCouplingPaperCodes">GitHub</a>
+    </div>
   </li>
   <li>
-    <a href="https://github.com/skarppinen/GenericSSMs.jl">GenericSSMs.jl</a>
-    <p>Package (by Santeri Karppinen) for generic particle filtering and particle Markov chain Monte Carlo</p>
+    <strong>GenericSSMs.jl</strong>: Package (by Santeri Karppinen) for generic particle filtering and particle Markov chain Monte Carlo
+  </li>
+    <div class="preprint">
+      <a href="https://github.com/skarppinen/GenericSSMs.jl">GitHub</a>, <a href="https://doi.org/10.5281/zenodo.17288722">Zenodo</a>
+    </div>
+  <li>
+    <strong>cpf-bbs</strong>: Codes (with Santeri Karppinen) for experiments in the paper <a href="https://doi.org/10.1080/10618600.2023.2231514">doi:10.1080/10618600.2023.2231514</a>/<a href="https://arxiv.org/abs/2205.13898">arXiv:2205.13898</a>, about 'bridge backward sampling' generalisation of backward/ancestor sampling, which avoids degeneracy with models having weakly informative observations and stiff dynamics.
+    <div class="preprint">
+       <a href="https://github.com/skarppinen/cpf-bbs">GitHub</a>, <a href="https://doi.org/10.5281/zenodo.17288780">Zenodo</a>
+    </div>
   </li>
   <li>
-    <a href="https://github.com/skarppinen/cpf-bbs">cpf-bbs</a>
-    <p>Codes (with Santeri Karppinen) for experiments in the paper <a href="https://arxiv.org/abs/2205.13898">arXiv:2205.13898</a>, about 'bridge backward sampling' generalisation of backward/ancestor sampling, which avoids degeneracy with models having weakly informative observations and stiff dynamics.
+    <strong>weakly-informative-resampling-codes</strong>: Codes for experiments  in the paper <a href="https://doi.org/10.1214/22-AOS2222">doi:10.1214/22-AOS2222</a>/<a href="https://arxiv.org/abs/2203.10037">arXiv:2203.10037</a>, about performance of various resampling methods in the weakly informative regime.
+    <div class="preprint">
+      <a href="https://github.com/mvihola/weakly-informative-resampling-codes">GitHub</a>, <a href="https://doi.org/10.5281/zenodo.17285160">Zenodo</a>
+    </div>
+  </li>
+  <li><strong>Resamplings.jl</strong>: Package (with Santeri Karppinen) which implements a number of unbiased resampling algorithms,which can be used easily within a particle filter (sequential Monte Carlo) algorithm.
+    <div class="preprint">
+    <a href="https://github.com/skarppinen/Resamplings.jl">GitHub</a>,
+    <a href="https://doi.org/10.5281/zenodo.17288763">Zenodo</a>
+    </div>
   </li>
   <li>
-    <a href="https://github.com/mvihola/weakly-informative-resampling-codes">weakly-informative-resampling-codes</a>
-    <p>Codes for experiments  in the paper <a href="https://arxiv.org/abs/2203.10037">arXiv:2203.10037</a>, about performance of various resampling methods in the weakly informative regime.</p>
+    <strong>tassu-filtering</strong>: Codes (by Santeri Karppinen) which implement the method for estimating animal territories and which was used in the experiments of the related paper <a href="https://doi.org/10.1016/j.ecolmodel.2022.110101">doi:10.1016/j.ecolmodel.2022.110101</a>.
+    <div class="preprint">
+    <a href="https://github.com/skarppinen/tassu-filtering">GitHub</a>,
+    <a href="https://doi.org/10.5281/zenodo.17288834">Zenodo</a>
+    </div>
   </li>
-  <li><a href="https://github.com/skarppinen/Resamplings.jl">Resamplings.jl</a>
-    <p>Package (with Santeri Karppinen) which implements a number of unbiased resampling algorithms,which can be used easily within a particle filter (sequential Monte Carlo) algorithm.
-    </p>
-  </li>
-  <li>
-    <a href="https://github.com/skarppinen/tassu-filtering">tassu-filtering</a>
-    <p>Codes (by Santeri Karppinen) which implement the method for estimating animal territories and which was used in the experiments of the related paper <a href="https://doi.org/10.1016/j.ecolmodel.2022.110101">doi:10.1016/j.ecolmodel.2022.110101</a>.</p>
-  </li>
-<li><a
-href="https://github.com/skarppinen/cpf-diff-init">cpf-diff-init</a>
-<p>Codes (by Santeri Karppinen) which implement the conditional
-particle filter with diffuse initialisation, and the experiments of
+<li><strong>cpf-diff-init</strong>: Codes (by Santeri Karppinen) which implement the conditional
+particle filter with diffuse initialisation, and the experiments of 
 the related paper <a href="https://doi.org/10.1007/s11222-020-09975-1">doi:10.1007/s11222-020-09975-1</a>/<a
-href="https://arxiv.org/abs/2006.14877">arXiv:2006.14877</a>.</p></li>
-<li><a
-href="https://github.com/mvihola/AdaptiveMCMC.jl">AdaptiveMCMC.jl</a>
-<p>Package implementing random-walk based adaptive MCMC
-algorithms</p>
-<li><a
-href="https://github.com/mvihola/AdaptiveParticleMCMC.jl">AdaptiveParticleMCMC.jl</a>
-<p>Package implementing particle MCMC algorithms with adaptive
-proposals</p>
-<li><a
-href="https://github.com/awllee/CoupledConditionalSMC.jl">CoupledConditionalSMC.jl</a>
-<p>Package (by Anthony Lee)
+href="https://arxiv.org/abs/2006.14877">arXiv:2006.14877</a>.
+    <div class="preprint">
+      <a href="https://github.com/skarppinen/cpf-diff-init">GitHub</a>, <a href="https://doi.org/10.5281/zenodo.17288824">Zenodo</a>
+    </div>
+</li>
+<li><strong>AdaptiveMCMC.jl</strong>: Package implementing random-walk based adaptive MCMC as discussed in the related paper <a href="https://doi.org/10.1002/9781118445112.stat08286">doi:10.1002/9781118445112.stat08286</a>/<a href="https://jyx.jyu.fi/handle/123456789/97466">Author version</a>
+algorithms
+<div class="preprint">
+<a href="https://github.com/mvihola/AdaptiveMCMC.jl">GitHub</a>
+</div>
+</li>
+<li><strong>AdaptiveParticleMCMC.jl</strong>: Package implementing particle MCMC algorithms with adaptive
+proposals
+<div class="preprint">
+  <a href="https://github.com/mvihola/AdaptiveParticleMCMC.jl">GitHub</a>
+</div>
+</li>
+<li><strong>CoupledConditionalSMC.jl</strong>: Package (by Anthony Lee)
 implementing coupled conditional particle filters (for unbiased smoothing)
-suggested in
-<a
-href="https://doi.org/10.1214/19-AOS1922">doi:10.1214/19-AOS1922</a>/<a
-href="https://arxiv.org/abs/1806.05852">arXiv:1806.05852</a>.</p>
-<li><a
-href="https://github.com/mvihola/AdaptiveToleranceABC_MCMC.jl">AdaptiveToleranceABC_MCMC.jl</a>
-<p> Package which implements an adaptive tolerance ABC-MCMC with
+suggested in <a href="https://doi.org/10.1214/19-AOS1922">doi:10.1214/19-AOS1922</a>/<a
+href="https://arxiv.org/abs/1806.05852">arXiv:1806.05852</a>.
+<div class="preprint">
+  <a href="https://github.com/awllee/CoupledConditionalSMC.jl">GitHub</a>
+</div>
+</li>
+<li><strong>AdaptiveToleranceABC_MCMC.jl</strong>: Package which implements an adaptive tolerance ABC-MCMC with
   post-correction, as described in the related paper
   <a
 href="https://doi.org/10.1093/biomet/asz078">doi:10.1093/biomet/asz078</a>/<a
 href="https://arxiv.org/abs/1902.00412">arXiv:1902.00412</a>. See also
 <a
 href="https://bitbucket.org/mvihola/abc-mcmc/src/master/">abc-mcmc</a>
-for the codes of the experiments in the paper.</p>
+for the codes of the experiments in the paper.
+<div class="preprint">
+  <a href="https://github.com/mvihola/AdaptiveToleranceABC_MCMC.jl">GitHub</a>
+</div>
+</li>
 </ul>
 </article>
 
 <article id="r">
 <h2>R</h2>
 <ul>
-
-  <li><a href="https://doi.org/10.32614/CRAN.package.bssm">bssm</a>
-  <p><a href="https://www.r-project.org/">R</a> package (by Jouni
-Helske) for Bayesian Inference of State Space Models,
-implementing estimators described in
-<a
-href="https://doi.org/10.1111/sjos.12492">doi:10.1111/sjos.12492</a>/<a
-href="http://arxiv.org/abs/1609.02541">arXiv:1609.02541</a></p>
-<li><a href="https://doi.org/10.32614/CRAN.package.ramcmc">ramcmc</a>
-  <p>R package (by Jouni Helske) implementing (building blocks for) the <a href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM sampler</a></p>
+  <li><strong>bssm</strong>: <a href="https://www.r-project.org/">R</a> package (by Jouni Helske) for Bayesian Inference of State Space Models, implementing estimators described in <a href="https://doi.org/10.1111/sjos.12492">doi:10.1111/sjos.12492</a>/<a href="http://arxiv.org/abs/1609.02541">arXiv:1609.02541</a>
+<div class="preprint">
+  <a href="https://doi.org/10.32614/CRAN.package.bssm">CRAN</a>, 
+  <a href="https://github.com/helske/bssm">GitHub</a>
+</div>
+  <li><strong>ramcmc</strong>: R package (by Jouni Helske) implementing (building blocks for) the <a href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM sampler</a>
+<div class="preprint">
+  <a href="https://doi.org/10.32614/CRAN.package.ramcmc">CRAN</a>, <a href="https://github.com/helske/ramcmc">GitHub</a>
+</div>
 </ul>
 </article>
 
 <article id="python">
 <h2>Python</h2>
 <ul>
-<li><a href="ram.py">ram.py</a>
-<p>Simple pure Python (&amp; NumPy) implementation of the
-<a href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM</a> algorithm</p>
+<li><a href="ram.py">ram.py</a>: Simple pure Python (&amp; NumPy) implementation of the
+<a href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM</a> algorithm
 </ul>
 </article>
 
 <article id="matlab">
 <h2>Matlab</h2>
 <ul>
-  <li><a href="apt-codes.zip">apt-codes</a>
-  <p><a href="https://www.mathworks.com/products/matlab.html">Matlab</a> codes implementing the adaptive parallel tempering
-algorithm(s) on the experiments described in the related <a
-href="http://dx.doi.org/10.1080/10618600.2013.778779">paper</a>
-</p>
-  <li><a href="ram_demo.m">ram_demo.m</a>
-  <p>Simple Matlab implementation of the <a
+  <li><a href="apt-codes.zip">apt-codes</a>: <a href="https://www.mathworks.com/products/matlab.html">Matlab</a> codes implementing the adaptive parallel tempering algorithm(s) on the experiments described in the related <a href="http://dx.doi.org/10.1080/10618600.2013.778779">paper</a>
+  <li><a href="ram_demo.m">ram_demo.m</a>: Simple Matlab implementation of the <a
 href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM</a>
-</p>
 </ul>
 </article>
 
@@ -138,18 +151,20 @@ href="http://dx.doi.org/10.1007/s11222-011-9269-5">RAM</a>
 <h2>C/C++</h2>
 
 <ul>
-  <li><a href="https://bitbucket.org/mvihola/unbiased-mlmc">unbiased-mlmc</a>
-  <p><a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> implementation of unbiased multilevel Monte Carlo estimators
-  for diffusion expectations, as described in the <a
-href="https://doi.org/10.1287/opre.2017.1670">paper</a></p>
-  <li><a href="https://github.com/mvihola/grapham">grapham</a>
-  <p><a
-href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>
+  <li><strong>unbiased-mlmc</strong>: <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> implementation of unbiased multilevel Monte Carlo estimators for diffusion expectations, as described in the <a href="https://doi.org/10.1287/opre.2017.1670">paper</a>
+<div class="preprint">
+    <a href="https://bitbucket.org/mvihola/unbiased-mlmc">BitBucket</a>
+</div>
+</li>
+<li><strong>grapham</strong>: <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>
 implementation of several adaptive random-walk Metropolis
 algorithms on graphical models (or Bayesian networks), with models
 defined in <a href="https://www.lua.org/">Lua</a>
 (and optionally partly in C)
-</p>
+<div class="preprint">
+<a href="https://github.com/mvihola/grapham">GitHub</a>
+</div>
+</li>
 </ul>
 
 </article>
